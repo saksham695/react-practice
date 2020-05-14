@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import ButtonComponent from "./button";
 import "./App.css";
 import InputComponent from "./input";
+import { data } from "./data";
 export default class App extends Component {
   constructor(props) {
     super(props);
@@ -16,30 +17,12 @@ export default class App extends Component {
     });
   };
   render() {
-    const buttonTypes = [
-      {
-        type: "RESET",
-        key: "kefbenf",
-      },
-      {
-        type: "SUBMIT",
-        key: "jhvdedek",
-      },
-    ];
-    const inputField = [
-      {
-        label: "NAME",
-        key: "dkjjddj",
-      },
-      {
-        label: "PASSWORD",
-        key: "dedelde",
-      },
-    ];
-
+    const inputField = data.inputField;
+    const buttonTypes = data.buttonTypes;
     return (
       <div className="box-wrapper">
         <h4>Login</h4>
+
         {inputField.map((itr) => (
           <InputComponent
             label={itr.label}
@@ -50,7 +33,8 @@ export default class App extends Component {
         {buttonTypes.map((itr) => (
           <ButtonComponent title={itr.type} key={itr.key} />
         ))}
-        {this.state.show}
+
+        <h4>{this.state.show}</h4>
       </div>
     );
   }
