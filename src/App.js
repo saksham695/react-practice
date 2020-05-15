@@ -7,20 +7,21 @@ export default class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      show: "",
-      buttonPressed: false,
+      inputText: "",
+      displayContent: "",
     };
   }
   buttonClicked = (button) => {
     console.log(`${button} pressed`);
     this.setState({
-      buttonPressed: !this.state.buttonPressed,
+      displayContent: this.state.inputText,
+      inputText: "",
     });
   };
 
   showTypedData = (inputValue) => {
     this.setState({
-      show: inputValue,
+      inputText: inputValue,
     });
   };
   render() {
@@ -45,7 +46,7 @@ export default class App extends Component {
           />
         ))}
 
-        <h4>{this.state.buttonPressed ? this.state.show : null}</h4>
+        <h4>{this.state.displayContent}</h4>
       </div>
     );
   }
