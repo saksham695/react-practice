@@ -8,12 +8,19 @@ export default class App extends Component {
     super(props);
     this.state = {
       show: "",
+      buttonPressed: false,
     };
   }
-
-  showTypedData = (value) => {
+  buttonClicked = (button) => {
+    console.log(`${button} pressed`);
     this.setState({
-      show: value,
+      buttonPressed: !this.state.buttonPressed,
+    });
+  };
+
+  showTypedData = (inputValue) => {
+    this.setState({
+      show: inputValue,
     });
   };
   render() {
@@ -31,10 +38,14 @@ export default class App extends Component {
           />
         ))}
         {buttonTypes.map((itr) => (
-          <ButtonComponent title={itr.type} key={itr.key} />
+          <ButtonComponent
+            title={itr.type}
+            key={itr.key}
+            buttonClicked={this.buttonClicked}
+          />
         ))}
 
-        <h4>{this.state.show}</h4>
+        <h4>{this.state.buttonPressed ? this.state.show : null}</h4>
       </div>
     );
   }
