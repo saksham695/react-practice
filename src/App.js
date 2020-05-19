@@ -1,14 +1,14 @@
 import React, { Component } from "react";
-import ButtonComponent from "./button";
-import "./App.css";
-import InputComponent from "./input";
+import ButtonComponent from "./Button/Button";
+import InputComponent from "./Input/Input";
 import { data } from "./data";
+import "./App.css";
 export default class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      inputText: "",
       displayContent: "",
+      inputText: "",
     };
   }
   buttonClicked = (button) => {
@@ -25,24 +25,24 @@ export default class App extends Component {
     });
   };
   render() {
-    const inputField = data.inputField;
     const buttonTypes = data.buttonTypes;
+    const inputField = data.inputField;
     return (
       <div className="box-wrapper">
         <h4>Login</h4>
 
         {inputField.map((itr) => (
           <InputComponent
-            label={itr.label}
-            key={itr.key}
             handle={this.showTypedData}
+            key={itr.key}
+            label={itr.label}
           />
         ))}
         {buttonTypes.map((itr) => (
           <ButtonComponent
-            title={itr.type}
-            key={itr.key}
             buttonClicked={this.buttonClicked}
+            key={itr.key}
+            title={itr.type}
           />
         ))}
 
