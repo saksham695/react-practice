@@ -31,18 +31,14 @@ export default class App extends Component {
       <div className="box-wrapper">
         <h4>Login</h4>
 
-        {inputField.map((itr) => (
-          <InputComponent
-            handle={this.showTypedData}
-            key={itr.key}
-            label={itr.label}
-          />
+        {inputField.map(({ key, label }) => (
+          <InputComponent handle={this.showTypedData} key={key} label={label} />
         ))}
-        {buttonTypes.map((itr) => (
+        {buttonTypes.map(({ key, type }) => (
           <ButtonComponent
             buttonClicked={this.buttonClicked}
-            key={itr.key}
-            title={itr.type}
+            key={key}
+            title={type}
           />
         ))}
 
