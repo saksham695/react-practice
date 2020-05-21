@@ -6,9 +6,9 @@ import * as serviceWorker from "./serviceWorker";
 import Hooks from "./Hooks";
 
 ReactDOM.render(
-  <React.StrictMode>
+  <>
     <Hooks color="red" />
-  </React.StrictMode>,
+  </>,
   document.getElementById("root")
 );
 
